@@ -11,29 +11,15 @@ content:
       - name: "news_list"
         label: "Newsletter Items"
         type: "list"
-        summary: "{{text}}"
         fields:
-          - name: "text"
-            label: "Message"
-            type: "text"
-            
-          - name: "backgroundColor"
-            label: "Background Color"
-            type: "color"
-            
-          - name: "textColor"
-            label: "Text Color"
-            type: "color"
-            
+          - { name: "text", label: "Message", type: "string", required: true }
+          - { name: "backgroundColor", label: "Background", type: "color" }
+          - { name: "textColor", label: "Text Color", type: "color" }
+          - { name: "fontSize", label: "Font Size", type: "string", default: "1.2rem" }
           - name: "fontFamily"
             label: "Font"
             type: "select"
             options:
-              - { label: "Ortica Linear", value: "'Ortica Linear', sans-serif" }
-              - { label: "Ronzino Bold", value: "'Ronzino Bold', sans-serif" }
-              - { label: "Standard Sans", value: "sans-serif" }
-              
-          - name: "fontSize"
-            label: "Font Size"
-            type: "string"
-            default: "1.2rem"
+              - "Ortica Linear"
+              - "Ronzino Bold"
+              - "sans-serif"
