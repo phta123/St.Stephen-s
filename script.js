@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- UPDATED NEWSLETTER FUNCTION ---
+    // --- NEWSLETTER FUNCTION (Updated for 'final_items') ---
     function loadNewsletterItems() {
         const newsletterContent = document.querySelector('.newsletter-content');
         if (!newsletterContent) return;
@@ -156,19 +156,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.json();
             })
             .then(data => {
-                // This now looks for 'cards' to match your new configuration
-                if (data && data.final_list) {
-                data.final_list.forEach(item => {
+                // Looking for 'final_items' to match the clean config
+                if (data && data.final_items) {
+                    data.final_items.forEach(item => {
                         const rect = document.createElement('div');
                         rect.classList.add('newsletter-rectangle');
                         
-                        // Apply styles from CMS
+                        // Apply styles from CMS data
                         rect.style.backgroundColor = item.backgroundColor || '#ffffff';
                         rect.style.color = item.textColor || '#000000';
                         rect.style.fontFamily = item.fontFamily || 'sans-serif';
                         rect.style.fontSize = item.fontSize || '1rem';
                         
-                        // Set text
+                        // Set text content
                         rect.innerHTML = item.text;
                         
                         newsletterContent.appendChild(rect);
