@@ -140,35 +140,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- SIMPLIFIED NEWSLETTER FUNCTION ---
+    // Connects to 'data/newsletter.json' and looks for 'items'
     function loadNewsletterItems() {
         const newsletterContent = document.querySelector('.newsletter-content');
         if (!newsletterContent) return;
 
-        // Clear existing content
         newsletterContent.innerHTML = '';
 
-        // CHANGED: Fetch the YAML file instead of JSON
-        fetch('data/newsletter.yml')
+        fetch('data/newsletter.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return response.text(); // Get text instead of json
+                return response.json();
             })
-            .then(text => {
-                // Convert YAML text to JavaScript object using the library
-                const data = jsyaml.load(text);
-
-                if (data && data.cards) {
-                    data.cards.forEach(item => {
+            .then(data => {
+                if (data && data.items) {
+                    data.items.forEach(item => {
                         const rect = document.createElement('div');
                         rect.classList.add('newsletter-rectangle');
                         
-                        // Apply styles from CMS
+                        // Apply styles
                         rect.style.backgroundColor = item.backgroundColor || '#ffffff';
                         rect.style.color = item.textColor || '#000000';
                         rect.style.fontFamily = item.fontFamily || 'sans-serif';
-                        rect.style.fontSize = item.fontSize || '1rem';
+                        rect.style.fontSize = '1.2rem'; // Fixed size for simplicity
                         
                         // Set text
                         rect.innerHTML = item.text;
