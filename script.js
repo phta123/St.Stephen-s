@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- UPDATED NEWSLETTER FUNCTION ---
     function loadNewsletterItems() {
         const newsletterContent = document.querySelector('.newsletter-content');
         if (!newsletterContent) return;
@@ -155,8 +156,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.json();
             })
             .then(data => {
-                if (data && data.items) {
-                    data.items.forEach(item => {
+                // This now looks for 'cards' to match your new configuration
+                if (data && data.cards) {
+                    data.cards.forEach(item => {
                         const rect = document.createElement('div');
                         rect.classList.add('newsletter-rectangle');
                         
