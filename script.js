@@ -140,8 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- UPDATED NEWSLETTER FUNCTION ---
-    // This connects to the new 'data/updates.json' file
     function loadNewsletterItems() {
         const newsletterContent = document.querySelector('.newsletter-content');
         if (!newsletterContent) return;
@@ -149,17 +147,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clear existing content
         newsletterContent.innerHTML = '';
 
-        fetch('data/updates.json')
+        // CHANGED: Fetch the YAML file instead of JSON
+        fetch('data/newsletter.yml')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return response.json();
+                return response.text(); // Get text instead of json
             })
-            .then(data => {
-                // Checks for the new list name 'news_items'
-                if (data && data.news_items) {
-                    data.news_items.forEach(item => {
+            .then(text => {
+                // Convert YAML text to JavaScript object using the library
+                const data = jsyaml.load(text);
+
+                if (data && data.cards) {
+                    data.cards.forEach(item => {
                         const rect = document.createElement('div');
                         rect.classList.add('newsletter-rectangle');
                         
