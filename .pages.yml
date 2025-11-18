@@ -7,38 +7,27 @@ content:
     label: "Newsletter Section"
     type: "file"
     path: "data/newsletter.json"
-    format: "json"
     fields:
       - name: "cards"
-        label: "Newsletter Cards"
+        label: "TEST LIST"
         type: "list"
-        summary: "{{text}}"
         fields:
           - name: "text"
-            label: "Message Text"
+            label: "Message"
             type: "text"
-            required: true
-            
           - name: "backgroundColor"
-            label: "Card Background Color"
+            label: "Background"
             type: "color"
-            required: true
-            
           - name: "textColor"
             label: "Text Color"
             type: "color"
-            default: "#000000"
-            
           - name: "fontFamily"
-            label: "Font Family"
+            label: "Font"
             type: "select"
             options:
-              - { label: "Ortica Linear", value: "'Ortica Linear', sans-serif" }
-              - { label: "Ronzino Bold", value: "'Ronzino Bold', sans-serif" }
-              - { label: "Standard Sans", value: "sans-serif" }
-              
+              - "Ortica Linear"
+              - "Ronzino Bold"
+              - "sans-serif"
           - name: "fontSize"
-            label: "Font Size"
-            type: "string"
-            default: "1.2rem"
-
+            label: "Size"
+            type: "text"
