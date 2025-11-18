@@ -1,5 +1,6 @@
 collections:
-  - path: index.html
+  - name: Newsletter Rectangles # Added name for the collection
+    path: index.html
     selector: .newsletter-content
     schema:
       type: array
