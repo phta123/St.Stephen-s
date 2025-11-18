@@ -8,7 +8,15 @@ content:
     type: collection
     path: content/newsletter
     format: json
+    view:
+      fields: [slug, text, backgroundColor]
     fields:
+      - name: slug
+        label: "Card Number (Enter 1, 2, 3...)"
+        type: string
+        required: true
+        pattern: "^[0-9]+$"
+        hint: "This MUST be a number. It links the card to your website script."
       - name: text
         label: Message
         type: string
@@ -23,7 +31,6 @@ content:
         label: Font Name
         type: string
         default: "sans-serif"
-        hint: "Type 'Ortica Linear', 'Ronzino Bold', or 'sans-serif'"
       - name: fontSize
         label: Font Size
         type: string
