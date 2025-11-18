@@ -20,12 +20,10 @@ content:
         label: Text Color
         type: color
       - name: fontFamily
-        label: Font
-        type: select
-        options:
-          - "Ortica Linear"
-          - "Ronzino Bold"
-          - "sans-serif"
+        label: Font Name
+        type: string
+        default: "sans-serif"
+        hint: "Type 'Ortica Linear', 'Ronzino Bold', or 'sans-serif'"
       - name: fontSize
         label: Font Size
         type: string
