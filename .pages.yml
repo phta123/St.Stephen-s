@@ -6,12 +6,12 @@ content:
   - name: newsletter
     label: Newsletter Section
     type: file
-    path: data/newsletter.json
-    format: json
+    path: data/updates.json
     fields:
-      - name: final_items
+      - name: news_items
         label: Newsletter Cards
         type: list
+        default: []
         fields:
           - name: text
             label: Message
@@ -23,10 +23,6 @@ content:
           - name: textColor
             label: Text Color
             type: color
-          - name: fontSize
-            label: Font Size
-            type: string
-            default: 1.2rem
           - name: fontFamily
             label: Font
             type: select
@@ -37,3 +33,7 @@ content:
                 label: Ronzino Bold
               - value: sans-serif
                 label: Standard Sans
+          - name: fontSize
+            label: Font Size
+            type: string
+            default: 1.2rem
