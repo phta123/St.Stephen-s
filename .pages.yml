@@ -5,7 +5,7 @@ media:
 content:
   - name: "newsletter"
     label: "Newsletter Section"
-    type: "json"
+    type: "file"
     path: "data/newsletter.json"
     fields:
       - name: "items"
@@ -23,6 +23,7 @@ content:
               - { label: "Ronzino Bold", value: "'Ronzino Bold', sans-serif" }
               - { label: "Standard Sans", value: "sans-serif" }
           - { name: "fontSize", label: "Font Size (e.g. 1.5rem or 20px)", type: "string", default: "1.2rem" }
+
 
 
 
