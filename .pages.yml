@@ -6,10 +6,9 @@ content:
   - name: newsletter
     label: Newsletter Section
     type: file
-    path: data/newsletter.yml
-    format: yaml
+    path: data/newsletter.json
     fields:
-      - name: cards
+      - name: items
         label: Newsletter Cards
         type: list
         fields:
@@ -22,14 +21,6 @@ content:
           - name: textColor
             label: Text Color
             type: color
-          - name: fontSize
-            label: Font Size
-            type: string
-            default: 1.2rem
           - name: fontFamily
-            label: Font
-            type: select
-            options:
-              - "Ortica Linear"
-              - "Ronzino Bold"
-              - "sans-serif"
+            label: Font Name
+            type: string
