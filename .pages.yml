@@ -9,7 +9,7 @@ content:
     path: "data/newsletter.json"
     format: "json"
     fields:
-      - name: "items"
+      - name: "cards"
         label: "Newsletter Cards"
         type: "list"
         summary: "{{text}}"
@@ -41,3 +41,4 @@ content:
             label: "Font Size"
             type: "string"
             default: "1.2rem"
+
