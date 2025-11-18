@@ -140,20 +140,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- UPDATED FUNCTION FOR COLLECTION FOLDER ---
+    // --- NEWSLETTER FUNCTION FOR COLLECTIONS ---
+    // This looks for files named 1.json, 2.json, etc. inside content/newsletter
     async function loadNewsletterItems() {
         const newsletterContent = document.querySelector('.newsletter-content');
         if (!newsletterContent) return;
 
         newsletterContent.innerHTML = '';
 
-        // We will try to fetch items named 1.json, 2.json, etc.
-        // This matches the "Collection" style where every card is a file.
         for (let i = 1; i <= 20; i++) {
             try {
+                // Try to fetch files 1.json through 20.json
                 const response = await fetch(`content/newsletter/${i}.json`);
                 
-                // If file doesn't exist, stop the loop (or skip)
+                // If the file doesn't exist (e.g. 4.json), skip it and try the next one
                 if (!response.ok) continue; 
 
                 const item = await response.json();
@@ -161,16 +161,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const rect = document.createElement('div');
                 rect.classList.add('newsletter-rectangle');
                 
+                // Apply styles from the JSON file
                 rect.style.backgroundColor = item.backgroundColor || '#ffffff';
                 rect.style.color = item.textColor || '#000000';
                 rect.style.fontFamily = item.fontFamily || 'sans-serif';
                 rect.style.fontSize = item.fontSize || '1rem';
                 
+                // Set the message text
                 rect.innerHTML = item.text;
                 
                 newsletterContent.appendChild(rect);
             } catch (error) {
-                // Ignore errors for missing files
+                // If something else goes wrong, just ignore it and continue
             }
         }
     }
