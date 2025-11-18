@@ -1,26 +1,32 @@
 media:
   input: image
-  output: /image
+  output: image
 
 content:
   - name: newsletter
-    label: Newsletter Section
-    type: file
-    path: data/newsletter.json
+    label: Newsletter Cards
+    type: collection
+    path: content/newsletter
+    format: json
     fields:
-      - name: items
-        label: Newsletter Cards
-        type: list
-        fields:
-          - name: text
-            label: Message
-            type: string
-          - name: backgroundColor
-            label: Background Color
-            type: color
-          - name: textColor
-            label: Text Color
-            type: color
-          - name: fontFamily
-            label: Font Name
-            type: string
+      - name: text
+        label: Message
+        type: string
+        required: true
+      - name: backgroundColor
+        label: Background Color
+        type: color
+      - name: textColor
+        label: Text Color
+        type: color
+      - name: fontFamily
+        label: Font
+        type: select
+        options:
+          - "Ortica Linear"
+          - "Ronzino Bold"
+          - "sans-serif"
+      - name: fontSize
+        label: Font Size
+        type: string
+        default: "1.2rem"
